@@ -1,0 +1,21 @@
+@font-face {
+    font-family: "Eina02";
+    src: local("Eina02-Bold"),
+     url("./Eina02-Bold.ttf") format("truetype");
+    font-weight: bold;
+}
+
+body {
+    height: 100%;
+    position: absolute;
+    margin: 0;
+    color: #001e3c;
+    font-family: Eina02;
+    font-weight: 400!important;
+}
+
+#root {
+    height: 100%;
+    width: 100%;
+}
+    

@@ -1,0 +1,50 @@
+h1 {
+    display: initial;
+    border-bottom: solid 2px #FD3246;
+}
+
+span {
+    text-align: center;
+    width: 100%;
+}
+
+.App {
+    height: 100%;
+    display: flex;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    width: 50%;
+}
+
+.content {
+    text-align: center;
+    width: -webkit-fill-available;
+    height: 50%;
+}
+
+.gray {
+    background-color: lightgray;
+}
+
+.actor {
+    background: lightgray;
+    display: inline-flex;
+    padding: 3px;
+    border-radius: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+#photo {
+    position: relative;
+    width: 90%;
+}
