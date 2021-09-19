@@ -42,7 +42,39 @@ export default class App extends React.Component {
         },
     }).then(res => {
       const actors = res.data;
+      console.log(res.data);
+
       this.setState({ actors });
+
+      var canvas = document.getElementById('ocr');
+      var ctx = canvas.getContext("2d");
+      var photo = document.getElementById('photo');
+
+      var width = photo.clientWidth;
+      var height = photo.clientHeight;
+
+      canvas.style.width = width + "px";
+      canvas.style.height = height + "px";
+      canvas.style.top = photo.getBoundingClientRect().top + "px";
+      canvas.style.left = photo.getBoundingClientRect().left + "px";
+
+      ctx.strokeStyle = "#FD3246";
+      ctx.lineWidth = 1
+
+      var polygons = this.state.actors.document.ocr.candidates.pages[0].actor_1
+      for (let index = 0; index < polygons.length; index++) {
+        const points = polygons[index].polygon;
+
+        console.log(points)
+
+        ctx.beginPath();
+        ctx.moveTo(points[0][0]*300,points[0][1]*150);
+        ctx.lineTo(points[1][0]*300,points[1][1]*150);
+        ctx.lineTo(points[2][0]*300,points[2][1]*150);  
+        ctx.lineTo(points[3][0]*300,points[3][1]*150);
+        ctx.closePath();
+        ctx.stroke();
+      }
     });
   }
 
@@ -77,6 +109,7 @@ export default class App extends React.Component {
             <img src={this.state.image} id="photo" alt="photo" />
           </span>
         </div>
+        <canvas id="ocr"></canvas>
       </div>
     )
   }

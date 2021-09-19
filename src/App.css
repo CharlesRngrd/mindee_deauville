@@ -48,3 +48,8 @@ span {
     position: relative;
     width: 90%;
 }
+
+#ocr {
+    z-index: 1000;
+    position: absolute;
+}
